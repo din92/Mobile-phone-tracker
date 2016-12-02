@@ -1,0 +1,30 @@
+{
+  "name": "mobile-app",
+  "version": "1.0.0",
+  "description": "Mobile phone tracking site",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/din92/Mobile-phone-tracker.git"
+  },
+  "keywords": [
+    "mobile"
+  ],
+  "author": "dinesh gautam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/din92/Mobile-phone-tracker/issues"
+  },
+  "homepage": "https://github.com/din92/Mobile-phone-tracker#readme"
+}

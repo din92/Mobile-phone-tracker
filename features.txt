@@ -1,0 +1,8 @@
+1) IMEI search
+2) Theft report
+3) lock my device
+4) ring the devie
+5) call logs (call made from the lost devie)
+6) Wipe device data
+7) Sim change Alert
+8) emergency mode to save battery power

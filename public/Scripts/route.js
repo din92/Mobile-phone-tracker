@@ -1,0 +1,57 @@
+var app = angular.module("TrackMobileApp", ["ngRoute"])
+				 .config(function($routeProvider) {
+				 	$routeProvider
+				 	.when("/Home",{
+				 		templateUrl:"Templates/Home.html",
+				 		controller:"homeController",
+				 		controllerAs:"vm",
+				 		access:{
+				 			restricted:false
+				 		}
+				 	})
+				 	.when("/ImeiSearch",{
+				 		templateUrl:"Templates/ImeiSearch.html",
+				 		controller:"imeiController",
+				 		controllerAs:"vm"
+				 	})
+				 	 .when("/theftReport",{
+				 	 	templateUrl:"Templates/theftReport.html",
+				 		controller:"theftreportController",
+				 		controllerAs:"vm"
+				 	 })
+				 	 .when("/ringMyDevice",{
+				 	 	templateUrl:"Templates/ringMyDevice.html",
+				 		controller:"ringDeviceController",
+				 		controllerAs:"vm"
+				 	 })
+				 	 .when("/lockMyDevice",{
+				 	 	templateUrl:"Templates/lockMyDevice.html",
+				 		controller:"lockController",
+				 		controllerAs:"vm"
+				 	 })
+				 	 .when("/callLogs",{
+				 	 	templateUrl:"Templates/callLogs.html",
+				 		controller:"callLogsController",
+				 		controllerAs:"vm"
+				 	 })
+				 	 .when("/wipeDeviceData",{
+				 	 	templateUrl:"Templates/wipeDeviceData.html",
+				 		controller:"wipeDeviceDataController",
+				 		controllerAs:"vm"
+				 	 })
+				 	  .when("/simChangeAlert",{
+				 	 	templateUrl:"Templates/simChangeAlert.html",
+				 		controller:"simChangeAlertController",
+				 		controllerAs:"vm"
+				 	 })
+				 	   .when("/emergencyMode",{
+				 	 	templateUrl:"Templates/emergencyMode.html",
+				 		controller:"emergencyModeController",
+				 		controllerAs:"vm"
+				 	 })
+				 	 .otherwise({
+				 	 	redirectTo:"/Home"
+				 	 })
+					
+				})
+				 

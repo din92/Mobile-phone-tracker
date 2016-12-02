@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title> Track Phone</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type = "text/css" href="CSS/main.css">
+</head>
+<body ng-app="TrackMobileApp">
+	<div class="container">
+		<div class="jumbotron" style="background:#222;color:white">
+			<h2 style="text-align:center">Track your lost phone</h2>
+			<div>
+				 <form  class="navbar-form navbar-right" role="login" >
+				      <div class="form-group" ng-class="{'has-error': vm.error}">
+				        <input type="text" class="form-control input-sm" placeholder="Username" ng-model="vm.username" autocapitalize="none"  required>
+				      </div>
+				      <div class="form-group" ng-class="{'has-error': vm.error}">
+				        <input type="password" class="form-control input-sm" placeholder="Password" ng-model="vm.password" autocapitalize="none" required>
+				      </div>
+				      <div class="alert alert-danger" ng-if="vm.unauthorized">
+				      <strong>Invalid Login</strong></div>
+				      <button type="submit" class="btn btn-sm btn-success">Login</button>
+			    </form>
+			</div>
+		</div>
+		<div>
+			<nav class="navbar navbar-inverse">
+			  <div class="container-fluid">
+			    <ul class="nav navbar-nav">
+			      <li><a href="#Home">Home</a></li>
+			      <li><a href="#ImeiSearch">IMEI Search</a></li>
+			      <li><a href="#theftReport">File Theft Report</a></li>
+			      <li class="dropdown" style="line-height: 0px">
+			        <a class="dropdown-toggle" data-toggle="dropdown" href="#Features" style="padding: 15px">Features<span class="caret"></span></a>
+			        <ul class="dropdown-menu" style="background:#222;color:white">
+			            <li><a href="#lockMyDevice">Lock My device</a></li>
+						<li><a href="#ringMyDevice">Ring My Device</a></li>
+						<li><a href="#callLogs">Check the call logs</a></li>
+						<li><a href="#wipeDeviceData">Wipe Device Data</a></li>
+						<li><a href="#simChangeAlert">Sim Change Alert</a></li>
+						<li><a href="#emergencyMode">Initiate Emergency Mode</a></li>
+			        </ul>
+			      </li>
+			    </ul>
+			  </div>
+			</nav>
+		</div>
+		<div ng-view></div>
+
+	</div>
+
+
+	<script src="Scripts/angular.min.js"></script>
+	<script src="Scripts/angular-route.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+	<script src="Scripts/route.js"></script>
+	<script src="Scripts/Home-controller.js"></script>
+	<script src="Scripts/LockDevice-controller.js"></script>
+	<script src="Scripts/theftReport-controller.js"></script>
+	<script src="Scripts/RingDevice-controller.js"></script>
+	<script src="Scripts/CallLogs-controller.js"></script>
+	<script src="Scripts/IMEI-controller.js"></script>
+	<script src="Scripts/EmergencyMode-controller.js"></script>
+	<script src="Scripts/SimChangeAlert-controller.js"></script>
+	<script src="Scripts/WipeDevice-controller.js"></script>
+</body>
+</html>

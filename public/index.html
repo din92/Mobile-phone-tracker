@@ -4,27 +4,31 @@
 	
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title> Track Phone</title>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type = "text/css" href="CSS/main.css">
 </head>
 <body ng-app="TrackMobileApp">
 	<div class="container">
-		<div class="jumbotron" style="background:#222;color:white">
+		<div class="jumbotron" style="background:#222;color:white" ng-controller="loginController as vm">
 			<h2 style="text-align:center">Track your lost phone</h2>
-			<div>
-				 <form  class="navbar-form navbar-right" role="login" >
+			<div ng-if="!vm.isLoggedIn()">
+				 <form  class="navbar-form navbar-right" role="login" ng-submit="vm.login()">
 				      <div class="form-group" ng-class="{'has-error': vm.error}">
 				        <input type="text" class="form-control input-sm" placeholder="Username" ng-model="vm.username" autocapitalize="none"  required>
 				      </div>
 				      <div class="form-group" ng-class="{'has-error': vm.error}">
 				        <input type="password" class="form-control input-sm" placeholder="Password" ng-model="vm.password" autocapitalize="none" required>
 				      </div>
-				      <div class="alert alert-danger" ng-if="vm.unauthorized">
-				      <strong>Invalid Login</strong></div>
 				      <button type="submit" class="btn btn-sm btn-success">Login</button>
+
+				      <div class="alert alert-danger" ng-if="!vm.unauthorized && vm.submitted">
+				      <strong>Invalid Login</strong></div>     
+					<span><a href="#signUp" role="button" class="btn btn-sm btn-primary">Sign Up</a></span>
 			    </form>
+			</div>
+			<div ng-if="vm.isLoggedIn()">
+				 <div class="navbar-form navbar-right"><p>Welcome <lable>{{vm.username}}</label> <button class = "btn btn-primary" ng-click="vm.logout()">Logout</button></p> </div>
 			</div>
 		</div>
 		<div>
@@ -56,7 +60,7 @@
 
 	<script src="Scripts/angular.min.js"></script>
 	<script src="Scripts/angular-route.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+	<script src="node_modules/angular-jwt/dist/angular-jwt.min.js"></script>
 	<script src="Scripts/route.js"></script>
 	<script src="Scripts/Home-controller.js"></script>
 	<script src="Scripts/LockDevice-controller.js"></script>
@@ -67,5 +71,11 @@
 	<script src="Scripts/EmergencyMode-controller.js"></script>
 	<script src="Scripts/SimChangeAlert-controller.js"></script>
 	<script src="Scripts/WipeDevice-controller.js"></script>
+	<script src="Scripts/Sign-Up-controller.js"></script>
+	<script src="Scripts/dataFactory.js"></script>
+	<script src="Scripts/authFactory.js"></script>
+	<script src="Scripts/auth-interceptor.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </body>
 </html>

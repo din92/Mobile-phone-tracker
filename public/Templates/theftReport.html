@@ -1,1 +1,41 @@
-<h1>{{vm.message}}</h1>
+<div>
+    <h1>File your report here</h1>
+     <div class ="alert alert-success" ng-if="vm.isSubmitted && vm.valid">
+                <p><h2>{{vm.message}}</h2></p>
+        </div>
+        <div class ="alert alert-danger" ng-if="vm.isSubmitted && vm.errored">
+                <p><h2>{{vm.message}}</h2></p>
+        </div>
+        <p>(*) indicates mandatory</p>
+        <form ng-submit="vm.addReport()" name="theftReportForm">            
+            <table class="table"> 
+                <tbody> 
+           <tr>
+                <td><h4>Mobile Name*</h4></td>
+                <td><input type="text" class="form-control"  ng-model="vm.name" required></td><br/>    
+            </tr>
+            <tr>
+               <td><h4>Model/Colour*</h4></td>
+               <td><input type="text" class="form-control"  ng-model="vm.model" placeholder="model/colour" required></td><br/> 
+            </tr>
+            <tr>
+               <td> <h4>Describe your phone here(in your words):</h4></td>
+               <td><textarea class="form-control" ng-model = "vm.description"></textarea> </td><br/> 
+            </tr>
+            <tr>
+               <td> <h4>IMEI number*</h4></td>
+               <td><input type="number" class="form-control" ng-model="vm.imei" required></td><br/> 
+            </tr>
+            <tr>
+               <td> <h4>Last place you remember using your phone*</h4></td>
+               <td><input type="text" class="form-control" ng-model="vm.lastPlace" required></td><br/> 
+            </tr>
+             <tr>
+               <td> <h4>Suspected place where stolen*</h4></td>
+               <td><input type="text" class="form-control" ng-model="vm.suspectedPlace" required></td><br/> 
+            </tr>
+            </tbody>
+            </table>
+            <div style = "text-align:center"><button class="btn btn-success" >Submit Report</button></div>
+        </form>
+</div>

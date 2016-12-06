@@ -1,0 +1,39 @@
+<div>
+    <p><h1>Register User</h1></p>
+    <div class ="alert alert-success" ng-if="vm.isSubmitted && vm.valid">
+                <p><h2>{{vm.message}}</h2></p>
+        </div>
+        <div class ="alert alert-danger" ng-if="vm.isSubmitted && vm.errored">
+                <p><h2>{{vm.message}}</h2></p>
+        </div>
+        <form ng-submit="vm.registerUser()" name="registerForm">
+            <div>
+            
+            <table class="table"> 
+                <tbody> 
+           <tr>
+                <td><h4>Name:</h4></td>
+                <td><input type="text" class="form-control"  ng-model="vm.name" required></td><br/>    
+            </tr>
+            <tr>
+               <td><h4> User Name:</h4></td>
+               <td><input type="text" class="form-control"  ng-model="vm.username" required></td><br/> 
+            </tr>
+            <tr>
+               <td> <h4>Email:</h4></td>
+               <td><input type="Email" class="form-control" ng-model="vm.email" name="email" required></td><br/> 
+            </tr>
+            <tr>
+               <td> <h4>Password:</h4></td>
+               <td><input type="password" class="form-control" ng-model="vm.password" required></td><br/> 
+            </tr>
+            <tr>
+               <td> <h4>Confirm Password:</h4></td>
+               <td><input type="password" class="form-control" ng-model="vm.conPassword" required></td><br/> 
+            </tr>
+            </tbody>
+            </table>
+            </div>
+            <div style = "text-align:center"><button class="btn btn-success" >Register</button></div>
+        </form>
+</div>

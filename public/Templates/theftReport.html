@@ -1,4 +1,3 @@
-<div>
     <h1>File your report here</h1>
      <div class ="alert alert-success" ng-if="vm.isSubmitted && vm.valid">
                 <p><h2>{{vm.message}}</h2></p>
@@ -7,8 +6,7 @@
                 <p><h2>{{vm.message}}</h2></p>
         </div>
         <p>(*) indicates mandatory</p>
-        <form ng-submit="vm.addReport()" name="theftReportForm">            
-            <table class="table"> 
+        <form ng-submit="vm.addReport()" name="theftReportForm"><table class="table"> 
                 <tbody> 
            <tr>
                 <td><h4>Mobile Name*</h4></td>
@@ -38,4 +36,4 @@
             </table>
             <div style = "text-align:center"><button class="btn btn-success" >Submit Report</button></div>
         </form>
-</div>
+

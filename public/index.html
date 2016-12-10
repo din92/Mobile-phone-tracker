@@ -7,12 +7,13 @@
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type = "text/css" href="CSS/main.css">
+	<style> .ng-cloak { display: none !important; } </style>
 </head>
 <body ng-app="TrackMobileApp">
 	<div class="container">
 		<div class="jumbotron" style="background:#222;color:white" ng-controller="loginController as vm">
 			<h2 style="text-align:center">Track your lost phone</h2>
-			<div ng-if="!vm.isLoggedIn()">
+			<div ng-if="!vm.isLoggedIn()" class="ng-cloak">
 				 <form  class="navbar-form navbar-right" role="login" ng-submit="vm.login()">
 				      <div class="form-group" ng-class="{'has-error': vm.error}">
 				        <input type="text" class="form-control input-sm" placeholder="Username" ng-model="vm.username" autocapitalize="none"  required>
@@ -22,12 +23,12 @@
 				      </div>
 				      <button type="submit" class="btn btn-sm btn-success">Login</button>
 
-				      <div class="alert alert-danger" ng-if="!vm.unauthorized && vm.submitted">
+				      <div class="alert alert-danger" ng-if="!vm.authorized && vm.submitted">
 				      <strong>Invalid Login</strong></div>     
 					<span><a href="#signUp" role="button" class="btn btn-sm btn-primary">Sign Up</a></span>
 			    </form>
 			</div>
-			<div ng-if="vm.isLoggedIn()">
+			<div ng-if="vm.isLoggedIn()" class="ng-cloak">
 				 <div class="navbar-form navbar-right"><p>Welcome <lable>{{vm.username}}</label> <button class = "btn btn-primary" ng-click="vm.logout()">Logout</button></p> </div>
 			</div>
 		</div>

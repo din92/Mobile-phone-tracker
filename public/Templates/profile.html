@@ -1,0 +1,18 @@
+<h1>{{vm.message}}</h1>
+<div>
+    <p>Name : {{vm.user.name}} <span ng-if="vm.editable"><input type="text" required ng-model="vm.name"></span></p><br/>
+    <p>User Name : {{vm.user.username}} </p><br/>
+    <p>Email Id : {{vm.user.email}}  <span ng-if="vm.editable"><input type="text" required ng-model="vm.email"></span></p><br/>
+    <p>History : No Data here</p>
+    <div ng-if="vm.errMsg" class="alert alert-danger">{{vm.errMsg}}</div>
+    <div>
+        <span><button class="btn btn-primary" ng-click="vm.edit()">Edit info</button></span>
+        <span style="padding-left:1.8em"><button class="btn btn-primary" ng-click="vm.save()">Save</button></span>
+    </div>
+    <div ng-if="vm.success && vm.submitted" class="alert alert-success">
+        <h3>{{vm.successMsg}}</h3>
+    </div>
+    <div ng-if="!vm.success && vm.submitted" class="alert alert-danger">
+        <h3>{{vm.successMsg}}</h3>
+    </div>
+</div>

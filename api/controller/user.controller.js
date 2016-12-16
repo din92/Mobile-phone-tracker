@@ -32,6 +32,53 @@ user
 	})
 
 }
+
+module.exports.findUser =function(req,res){
+user
+	.findOne({username:req.params.username})
+	.exec(function(err,userFound){
+		if(err){
+			res.status(403).json(err);
+		}
+		else if(!userFound){
+			res.status(404).json({"message":"user not found"});
+		}
+		else{
+			console.log("user found");
+			res.status(200).json(userFound);
+			
+
+		}
+	})
+
+}
+module.exports.updateUser =function(req,res){
+user
+	.findOne({username:req.params.username})
+	.exec(function(err,userFound){
+		if(err){
+			res.status(403).json(err);
+		}
+		else{
+			userFound.name=req.body.name;
+			userFound.email=req.body.email;
+			userFound.save(function(err,updatedUser){
+				if(err){
+					console.log("Error occured in updating user");
+					res.status(400).json(err);
+				}
+				else{
+					console.log("User Data updated");
+					res.status(204).json(updatedUser);
+				}
+			})
+			
+
+		}
+	})
+
+}
+
 module.exports.registerUser =function(req,res)
 {
 console.log("Registering the user"+" "+req.body.username +" "+ req.body.password);

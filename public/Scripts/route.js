@@ -9,7 +9,7 @@ var app = angular.module("TrackMobileApp", ["ngRoute","angular-jwt"]).run(run)
 				 		access:{
 				 			restricted:false
 				 		}
-				 	})
+				 	}) 
 				 	.when("/ImeiSearch",{
 				 		templateUrl:"Templates/ImeiSearch.html",
 				 		controller:"imeiController",
@@ -29,6 +29,14 @@ var app = angular.module("TrackMobileApp", ["ngRoute","angular-jwt"]).run(run)
 				 	 	templateUrl:"Templates/ringMyDevice.html",
 				 		controller:"ringDeviceController",
 				 		controllerAs:"vm"
+				 	 })
+					 .when("/profile",{
+				 	 	templateUrl:"Templates/profile.html",
+				 		controller:"profileController",
+				 		controllerAs:"vm",
+						 access:{
+							 restricted:true
+						 }
 				 	 })
 				 	 .when("/lockMyDevice",{
 				 	 	templateUrl:"Templates/lockMyDevice.html",
@@ -60,8 +68,9 @@ var app = angular.module("TrackMobileApp", ["ngRoute","angular-jwt"]).run(run)
 				 	 })
 					
 				})
-				.controller("loginController",function(dataFactory,$location,authFactory,$route,$window){
+				.controller("loginController",function(dataFactory,$location,authFactory,$route,$window,jwtHelper){
 					var vm =this;
+					 vm.loggedUser = ($window.sessionStorage.token)?jwtHelper.decodeToken($window.sessionStorage.token).username:" ";
 					vm.login = function(){
 						var user={
 							username : vm.username,
@@ -74,6 +83,7 @@ var app = angular.module("TrackMobileApp", ["ngRoute","angular-jwt"]).run(run)
 							authFactory.isloggedIn = true;
 							vm.loggedIn = authFactory.isloggedIn;
 							$window.sessionStorage.token = response.data;
+							vm.loggedUser=vm.username;
 							$location.path("/Home");
 							$route.reload();
 							}

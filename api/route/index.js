@@ -15,4 +15,9 @@ router
 	.route("/users/report")
 	.post(ctrlUsers.authenticate,ctrlReport.fileReport);
 
+router
+	.route("/users/:username")
+	.post(ctrlUsers.findUser)
+	.put(ctrlUsers.updateUser);
+
 module.exports = router;

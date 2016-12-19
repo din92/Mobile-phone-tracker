@@ -9,7 +9,7 @@
 	<style> .ng-cloak { display: none !important; } </style>
 </head>
 <body ng-app="TrackMobileApp">
-	<div class="container">
+	<div class="container" class="home" id="wrapper">
 		<div class="jumbotron" style="background:#222;color:white" ng-controller="loginController as vm">
 			<h2 style="text-align:center">Track your lost phone</h2>
 			<div ng-if="!vm.isLoggedIn()" class="ng-cloak">
@@ -61,8 +61,19 @@
 			  </div>
 			</nav>
 		</div>
-		<div ng-view></div>
+		<div ng-view id ="content"></div>
+			<div>
+				<footer class="footer">
+					<div class="container">
+						<p class="text-muted text-center">
+							<h3>Full Stack Training</h3>
+							<small>&copy; 2015 Full Stack Training Ltd</small>
+						</p>
+					</div>
+				</footer>
+		</div>
 	</div>
+	
 	<script src="Scripts/angular.js"></script>
 	<script src="Scripts/angular-route.js"></script>
 	<script src="node_modules/angular-jwt/dist/angular-jwt.min.js"></script>
